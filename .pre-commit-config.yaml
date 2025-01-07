@@ -8,6 +8,7 @@ repos:
         additional_dependencies: [ruff]
         language: python
         types: [python]
+        exclude: tests/.*
       - id: ruff-format
         name: ruff-format
         entry: ruff format
@@ -20,3 +21,4 @@ repos:
         additional_dependencies: [mypy]
         language: python
         types: [python]
+        exclude: tests/.*
