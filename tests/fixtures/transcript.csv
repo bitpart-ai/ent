@@ -7,8 +7,8 @@ SUBTASK,,smoke_pipe,,pass_time_at_baker_st,3
 STEP,HOLMES,PICKS_UP,"{""object"": ""tobacco""}",smoke_pipe,4
 STEP,HOLMES,PLACES_IN,"{""object"": ""tobacco"", ""target"": ""pipe""}",smoke_pipe,4
 STEP,HOLMES,SMOKES,"{""object"": ""pipe""}",smoke_pipe,4
-STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Where ever did you get that slipper in which you keep your tobacco, Holmes?""",smoke_pipe,4
-STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""That is too long a story for a day as hot as today, Doctor.""",smoke_pipe,4
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Where ever did you get that slipper in which you keep your tobacco, Holmes?""}",smoke_pipe,4
+STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""That is too long a story for a day as hot as today, Doctor.""}",smoke_pipe,4
 SUBTASK,,read_watsons_mind,,pass_time_at_baker_st,5
 SUBTASK,,explain_case,,pass_time_at_baker_st,5
 STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""You are right, Watson, it does seem a most preposterous way of settling a dispute.""}",read_watsons_mind,6
@@ -33,8 +33,8 @@ STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""I was longing f
 STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Sorry, Holmes, my practice is far too busy today. I am a doctor, after all.""}",decide_whether_to_help_holmes,13
 STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""A telegram for you, Mr. Holmes.""}",solve_case,14
 STEP,LESTRADE,GIVES,"{""target"": ""HOLMES"", ""object"": ""telegram""}",solve_case,14
-STEP,HOLMES,SPEAKS_TO,"{""target"": ""LESTRADE"", ""utterance"": ""Ha! It is the answer!""",solve_case,14
+STEP,HOLMES,SPEAKS_TO,"{""target"": ""LESTRADE"", ""utterance"": ""Ha! It is the answer!""}",solve_case,14
 SUBTASK,,react_to_telegram,,solve_case,14
 STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""You've solved the thing marvelously, Holmes!""}",solve_case,14
-STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Your methods and theories are fanciful, Mr. Holmes. I don't believe a word of it!""",react_to_telegram,15
-STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""You are a miracle worker, Mr. Holmes!""",react_to_telegram,16
+STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Your methods and theories are fanciful, Mr. Holmes. I don't believe a word of it!""}",react_to_telegram,15
+STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""You are a miracle worker, Mr. Holmes!""}",react_to_telegram,16

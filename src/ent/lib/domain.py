@@ -1,5 +1,6 @@
 import dataclasses
-from uuid import UUID
+from typing import Optional
+from uuid import UUID, uuid4
 
 from ent.lib.task import Task
 
@@ -10,11 +11,17 @@ class Domain:
     or narrative episodes for a set of characters along with objects they can interact with.
     """
 
-    uuid: UUID
     name: str
     tasks: dict[UUID, Task]
+    uuid: UUID = dataclasses.field(default_factory=uuid4)
 
     @classmethod
-    def from_transcript_rows(cls, rows: list[dict]) -> "Domain":
-        # TODO: create a domain given rows of a transcript
+    def from_transcript_rows(cls, rows: list[dict], name: str = "unnamed") -> "Domain":
+        # TODO: create a domain from rows of a transcript
         raise NotImplementedError
+
+    def get_task_by_name(self, name: str) -> Optional[Task]:
+        for task in self.tasks.values():
+            if task.name == name:
+                return task
+        return None
