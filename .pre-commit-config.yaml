@@ -17,5 +17,6 @@ repos:
       - id: mypy
         name: mypy
         entry: python -m mypy
+        additional_dependencies: [mypy]
         language: python
         types: [python]
