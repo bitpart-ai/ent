@@ -1,0 +1,21 @@
+---
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff-check
+        entry: ruff check
+        additional_dependencies: [ruff]
+        language: python
+        types: [python]
+      - id: ruff-format
+        name: ruff-format
+        entry: ruff format
+        additional_dependencies: [ruff]
+        language: python
+        types: [python]
+      - id: mypy
+        name: mypy
+        entry: python -m mypy
+        language: python
+        types: [python]
