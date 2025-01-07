@@ -1,0 +1,40 @@
+type,character,verb,details,task,method instance
+SUBTASK,,read_novel,,pass_time_at_baker_st,1
+STEP,WATSON,PICKS_UP,"{""object"": ""novel""}",read_novel,2
+STEP,WATSON,SITS_DOWN,"{""target"": ""armchair""}",read_novel,2
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""It's far too hot out today to do anything but stay indoors.""}",read_novel,2
+SUBTASK,,smoke_pipe,,pass_time_at_baker_st,3
+STEP,HOLMES,PICKS_UP,"{""object"": ""tobacco""}",smoke_pipe,4
+STEP,HOLMES,PLACES_IN,"{""object"": ""tobacco"", ""target"": ""pipe""}",smoke_pipe,4
+STEP,HOLMES,SMOKES,"{""object"": ""pipe""}",smoke_pipe,4
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Where ever did you get that slipper in which you keep your tobacco, Holmes?""",smoke_pipe,4
+STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""That is too long a story for a day as hot as today, Doctor.""",smoke_pipe,4
+SUBTASK,,read_watsons_mind,,pass_time_at_baker_st,5
+SUBTASK,,explain_case,,pass_time_at_baker_st,5
+STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""You are right, Watson, it does seem a most preposterous way of settling a dispute.""}",read_watsons_mind,6
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Most preposterous!""}",read_watsons_mind,6
+STEP,HOLMES,STARES_AT,"{""target"": ""HOLMES""}",read_watsons_mind,6
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""What is this, Holmes?""}",read_watsons_mind,6
+STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""When I saw you throw down your paper and enter upon a train of thought, I was very happy to have the opportunity of reading it off, and eventually of breaking into it, as a proof that I had been in rapport with you""}",read_watsons_mind,6
+SUBTASK,,explain_deductive_method,,read_watsons_mind,6
+SUBTASK,,express_amazement,,read_watsons_mind,6
+STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""A close reasoner follows the unspoken thoughts of his companion.""}",explain_deductive_method,7
+STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""I saw by the alteration in your face that a train of thought had been started.""}",explain_deductive_method,8
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""You have followed me wonderfully!""}",express_amazement,9
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""And now that you have explained it, I confess that I am as amazed as before.""}",express_amazement,10
+STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""Have you observed in the paper a short paragraph referring to the remarkable contents of a packet sent through the post to Miss Cushing, of Cross Street, Croydon?""}",explain_case,11
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""No, I saw nothing.""}",explain_case,11
+STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""Here it is, under the financial column. Perhaps you would be good enough to read it aloud.""}",explain_case,11
+STEP,HOLMES,THROWS,"{""target"": ""WATSON"", ""object"": ""newspaper""}",explain_case,11
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Miss Susan Cushing, living at Cross Street, Croydon, has been made the victim of what must be regarded as a peculiarly revolting practical joke.""}",explain_case,11
+STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""What say you, Watson? Can you run down to Croydon with me?""}",explain_case,11
+SUBTASK,,decide_whether_to_help_holmes,,explain_case,11
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""I was longing for something to do.""}",decide_whether_to_help_holmes,12
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Sorry, Holmes, my practice is far too busy today. I am a doctor, after all.""}",decide_whether_to_help_holmes,13
+STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""A telegram for you, Mr. Holmes.""}",solve_case,14
+STEP,LESTRADE,GIVES,"{""target"": ""HOLMES"", ""object"": ""telegram""}",solve_case,14
+STEP,HOLMES,SPEAKS_TO,"{""target"": ""LESTRADE"", ""utterance"": ""Ha! It is the answer!""",solve_case,14
+SUBTASK,,react_to_telegram,,solve_case,14
+STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""You've solved the thing marvelously, Holmes!""}",solve_case,14
+STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Your methods and theories are fanciful, Mr. Holmes. I don't believe a word of it!""",react_to_telegram,15
+STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""You are a miracle worker, Mr. Holmes!""",react_to_telegram,16
