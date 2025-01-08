@@ -3,11 +3,12 @@
 Welcome to Bitpart's coding assignment. In this repository, you'll find scaffolding for a small Python library called `ent` along with a test suite. The library models a simple version of a hierarchical task network (HTN) domain. 
 
 <details>
-    <summary>What is an HTN? What is a domain?</summary>
 
-    HTN is a model used for planning. An HTN is described by its domain, which consists of tasks, task methods, and actions. Tasks are hierarchical and are decomposed by a planning procedure in order to produce a series of actions that form a plan. Task methods are different ways to perform a task. As an example, we may have a task `have breakfast`, which has three methods. The first method is a sequence `[go to diner, order pancakes, eat]`, the second is `[go to kitchen, make pancakes, eat]`, and the third is `[go to kitchen, make coffee, drink]`. An element in a task method can be either an action or a task (the latter gives the HTN its hierarchical nature).
+<summary>What is an HTN? What is a domain?</summary>
 
-    For more background on HTN planning, see [this Game AI Pro article](https://www.gameaipro.com/GameAIPro/GameAIPro_Chapter12_Exploring_HTN_Planners_through_Example.pdf).
+HTN is a model used for planning. An HTN is described by its domain, which consists of tasks, task methods, and actions. Tasks are hierarchical and are decomposed by a planning procedure in order to produce a series of actions that form a plan. Task methods are different ways to perform a task. As an example, we may have a task `have breakfast`, which has three methods. The first method is a sequence `[go to diner, order pancakes, eat]`, the second is `[go to kitchen, make pancakes, eat]`, and the third is `[go to kitchen, make coffee, drink]`. An element in a task method can be either an action or a task (the latter gives the HTN its hierarchical nature).
+
+For more background on HTN planning, see [this Game AI Pro article](https://www.gameaipro.com/GameAIPro/GameAIPro_Chapter12_Exploring_HTN_Planners_through_Example.pdf).
 
 </details>
 
@@ -15,9 +16,13 @@ Welcome to Bitpart's coding assignment. In this repository, you'll find scaffold
 
 In this assignment, you'll be asked to construct an HTN domain from a [data file](tests/fixtures/transcript.csv).
 
-The transcript describes sequences of behavior and is annotated with how they should be structured when turned into an HTN domain. Every row in the transcript represents either a `subtask` or `step`, indicated in the `type` column. `step` rows describe actions - primitive and concrete steps taken by a character. For example, the second row in the transcript describe a "PICKS_UP" action (`verb` column) performed by the character "WATSON" (`character` column) in which Watson picks up a "novel" object (`details` column). For the purposes of the assignment, we won't have to worry about where verbs are defined and what is a valid binding of the variables in an action's details - we'll assume whatever's in the transcript is valid. `step` rows are annotated with the task they are a child of (`task` column) and the instance id for the task method described by that annotation (`method instance` column). Consider lines 2 through 4 below (the three consecutive `step` rows). Taken together, they describe a task method for the task `read_novel`, which has three children: a PICKS_UP action, a SITS_DOWN action, and a SPEAKS_TO action.
+The transcript describes sequences of behavior and is annotated with how they should be structured when turned into an HTN domain. Every row in the transcript represents either a `subtask` or `step`, indicated in the `type` column. `step` rows describe actions - primitive and concrete steps taken by a character. For example, the second row in the transcript describe a "PICKS_UP" action (`verb` column) performed by the character "WATSON" (`character` column) in which Watson picks up a "novel" object (`details` column).
 
-`subtask` rows describe explicit domain structure. That is, rather than specifying concrete actions, they describe parent-child relationships between task methods and tasks. The first row below is stating that there is a task method for the task `pass_time_at_baker_st` which has one child, `read_novel`, which is itself a task. The fifth row is stating that there is a task method for the task `pass_time_at_baker_st` that has a single child, `smoke_pipe`. Note that a single method instance can have many subtask children - we could have a task method for `pass_time_at_baker_st` with three consecutive task children, e.g., `[read_novel, smoke_pipe, take_a_nap]`.
+For the purposes of the assignment, we won't have to worry about where verbs are defined and what is a valid binding of the variables in an action's details - we'll assume whatever's in the transcript is valid. `step` rows are annotated with the task they are a child of (`task` column) and the instance id for the task method described by that annotation (`method instance` column). Consider lines 2 through 4 below (the three consecutive `step` rows). Taken together, they describe a task method for the task `read_novel`, which has three children: a PICKS_UP action, a SITS_DOWN action, and a SPEAKS_TO action.
+
+`subtask` rows describe explicit domain structure. That is, rather than specifying concrete actions, they describe parent-child relationships between task methods and tasks. The first row below is stating that there is a task method for the task `pass_time_at_baker_st` which has one child, `read_novel`, which is itself a task. The fifth row is stating that there is a task method for the task `pass_time_at_baker_st` that has a single child, `smoke_pipe`.
+
+Note that a single method instance can have many subtask children - we could have a task method for `pass_time_at_baker_st` with three consecutive task children, e.g., `[read_novel, smoke_pipe, take_a_nap]`.
 
 |type   |character|verb                         |details                                                                                                          |task                         |method instance|
 |-------|---------|-----------------------------|-----------------------------------------------------------------------------------------------------------------|-----------------------------|---------------|
