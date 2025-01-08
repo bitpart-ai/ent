@@ -180,6 +180,4 @@ def test_create_domain__methods(task_name, expected, domain_from_rows):
 )
 def test_get_dialogue_choices(task_name, observed_actions, expected, domain_from_rows):
     choices = domain_from_rows.get_dialogue_choices(task_name, observed_actions)
-    if set(choice.details["utterance"] for choice in choices) != set(expected):
-        breakpoint()
     assert set(choice.details["utterance"] for choice in choices) == set(expected)
