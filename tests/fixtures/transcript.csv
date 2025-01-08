@@ -13,13 +13,14 @@ SUBTASK,,read_watsons_mind,,pass_time_at_baker_st,5
 SUBTASK,,explain_case,,pass_time_at_baker_st,5
 STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""You are right, Watson, it does seem a most preposterous way of settling a dispute.""}",read_watsons_mind,6
 STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Most preposterous!""}",read_watsons_mind,6
-STEP,HOLMES,STARES_AT,"{""target"": ""HOLMES""}",read_watsons_mind,6
+STEP,WATSON,STARES_AT,"{""target"": ""HOLMES""}",read_watsons_mind,6
 STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""What is this, Holmes?""}",read_watsons_mind,6
 STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""When I saw you throw down your paper and enter upon a train of thought, I was very happy to have the opportunity of reading it off, and eventually of breaking into it, as a proof that I had been in rapport with you""}",read_watsons_mind,6
 SUBTASK,,explain_deductive_method,,read_watsons_mind,6
 SUBTASK,,express_amazement,,read_watsons_mind,6
 STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""A close reasoner follows the unspoken thoughts of his companion.""}",explain_deductive_method,7
 STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""I saw by the alteration in your face that a train of thought had been started.""}",explain_deductive_method,8
+STEP,WATSON,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""Incredible!""}",explain_deductive_method,8
 STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""You have followed me wonderfully!""}",express_amazement,9
 STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""And now that you have explained it, I confess that I am as amazed as before.""}",express_amazement,10
 STEP,HOLMES,SPEAKS_TO,"{""target"": ""WATSON"", ""utterance"": ""Have you observed in the paper a short paragraph referring to the remarkable contents of a packet sent through the post to Miss Cushing, of Cross Street, Croydon?""}",explain_case,11
@@ -37,4 +38,9 @@ STEP,HOLMES,SPEAKS_TO,"{""target"": ""LESTRADE"", ""utterance"": ""Ha! It is the
 SUBTASK,,react_to_telegram,,solve_case,14
 STEP,WATSON,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""You've solved the thing marvelously, Holmes!""}",solve_case,14
 STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Your methods and theories are fanciful, Mr. Holmes. I don't believe a word of it!""}",react_to_telegram,15
+SUBTASK,,leave,,react_to_telegram,15
 STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""You are a miracle worker, Mr. Holmes!""}",react_to_telegram,16
+SUBTASK,,leave,,react_to_telegram,16
+STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Good day!""}",leave,17
+STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Until next time.""}",leave,18
+STEP,LESTRADE,SPEAKS_TO,"{""target"": ""HOLMES"", ""utterance"": ""Au revoir.""}",leave,19

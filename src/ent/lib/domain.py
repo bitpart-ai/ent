@@ -2,6 +2,7 @@ import dataclasses
 from typing import Optional
 from uuid import UUID, uuid4
 
+from ent.lib.action import Action
 from ent.lib.task import Task
 
 
@@ -25,3 +26,8 @@ class Domain:
             if task.name == name:
                 return task
         return None
+
+    def get_dialogue_choices(self, task_name: str, observed_actions: list[Action]) -> list[Action]:
+        # TODO: for a given root-level task and a sequence of already-observed Actions,
+        # determine what SPEAKS_TO actions could follow as the next action.
+        raise NotImplementedError

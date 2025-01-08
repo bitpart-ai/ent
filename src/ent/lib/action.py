@@ -15,3 +15,12 @@ class Action:
     verb: str
     details: dict[str, str]
     uuid: UUID = dataclasses.field(default_factory=uuid4)
+
+    def __eq__(self, value: object, /) -> bool:
+        if not isinstance(value, Action):
+            return False
+        return (
+            self.character == value.character
+            and self.verb == value.verb
+            and sorted(self.details.items()) == sorted(value.details.items())
+        )
