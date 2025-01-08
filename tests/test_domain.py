@@ -22,13 +22,11 @@ def test_create_domain(domain_from_rows: Domain):
 
 
 def test_create_domain__tasks(domain_from_rows):
-    task_names = [task.name for task in domain_from_rows.tasks.values()]
-    assert len(set(task_names)) == 11
+    assert len(set(domain_from_rows.task_names)) == 11
 
 
 def test_create_domain__all_tasks_unique(domain_from_rows):
-    task_names = [task.name for task in domain_from_rows.tasks.values()]
-    assert len(set(task_names)) == len(task_names)
+    assert len(set(domain_from_rows.task_names)) == len(domain_from_rows.task_names)
 
 
 @pytest.mark.parametrize(
