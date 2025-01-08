@@ -21,6 +21,10 @@ class Domain:
         # TODO: create a domain from rows of a transcript
         raise NotImplementedError
 
+    @property
+    def task_names(self):
+        return [task.name for task in self.tasks.values()]
+
     def get_task_by_name(self, name: str) -> Optional[Task]:
         for task in self.tasks.values():
             if task.name == name:
