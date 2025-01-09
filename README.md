@@ -14,15 +14,9 @@ For more background on HTN planning, see [this Game AI Pro article](https://www.
 
 ## Understanding the test data
 
-In this assignment, you'll be asked to construct an HTN domain from a [data file](tests/fixtures/transcript.csv).
+In this assignment, you'll be asked to construct an HTN domain from a [data file](tests/fixtures/transcript.csv), which we call a transcript.
 
-The transcript describes sequences of behavior and is annotated with how they should be structured when turned into an HTN domain. Every row in the transcript represents either a `subtask` or `step`, indicated in the `type` column. `step` rows describe actions - primitive and concrete steps taken by a character. For example, the second row in the transcript describe a "PICKS_UP" action (`verb` column) performed by the character "WATSON" (`character` column) in which Watson picks up a "novel" object (`details` column).
-
-For the purposes of the assignment, we won't have to worry about where verbs are defined and what is a valid binding of the variables in an action's details - we'll assume whatever's in the transcript is valid. `step` rows are annotated with the task they are a child of (`task` column) and the instance id for the task method described by that annotation (`method instance` column). Consider lines 2 through 4 below (the three consecutive `step` rows). Taken together, they describe a task method for the task `read_novel`, which has three children: a PICKS_UP action, a SITS_DOWN action, and a SPEAKS_TO action.
-
-`subtask` rows describe explicit domain structure. That is, rather than specifying concrete actions, they describe parent-child relationships between task methods and tasks. The first row below is stating that there is a task method for the task `pass_time_at_baker_st` which has one child, `read_novel`, which is itself a task. The fifth row is stating that there is a task method for the task `pass_time_at_baker_st` that has a single child, `smoke_pipe`.
-
-Note that a single method instance can have many subtask children - we could have a task method for `pass_time_at_baker_st` with three consecutive task children, e.g., `[read_novel, smoke_pipe, take_a_nap]`.
+Here is a snippet of the transcript.
 
 |type   |character|verb                         |details                                                                                                          |task                         |method instance|
 |-------|---------|-----------------------------|-----------------------------------------------------------------------------------------------------------------|-----------------------------|---------------|
@@ -36,6 +30,14 @@ Note that a single method instance can have many subtask children - we could hav
 |STEP   |HOLMES   |SMOKES                       |{"object": "pipe"}                                                                                               |smoke_pipe                   |4              |
 |STEP   |WATSON   |SPEAKS_TO                    |{"target": "HOLMES", "utterance": "Where ever did you get that slipper in which you keep your tobacco, Holmes?"} |smoke_pipe                   |4              |
 |STEP   |HOLMES   |SPEAKS_TO                    |{"target": "WATSON", "utterance": "That is too long a story for a day as hot as today, Doctor."}                 |smoke_pipe                   |4              |
+
+The transcript describes sequences of behavior and is annotated with how they should be structured when turned into an HTN domain. Every row in the transcript represents either a `subtask` or `step`, indicated in the `type` column. `step` rows describe actions - primitive and concrete steps taken by a character. For example, the second row in the transcript describe a "PICKS_UP" action (`verb` column) performed by the character "WATSON" (`character` column) in which Watson picks up a "novel" object (`details` column). For the purposes of the assignment, we won't have to worry about where verbs are defined and what is a valid binding of the variables in an action's details - we'll assume whatever's in the transcript is valid.
+
+`step` rows are annotated with the task they are a child of (`task` column) and the instance id for the task method described by that annotation (`method instance` column). Consider the second through fourth lines in the transcript (the three consecutive `step` rows). Taken together, they describe a task method for the task `read_novel`, which has three children: a PICKS_UP action, a SITS_DOWN action, and a SPEAKS_TO action.
+
+`subtask` rows describe explicit domain structure. That is, rather than specifying concrete actions, they describe parent-child relationships between task methods and tasks. The first row below is stating that there is a task method for the task `pass_time_at_baker_st` which has one child, `read_novel`, which is itself a task. The fifth row is stating that there is a task method for the task `pass_time_at_baker_st` that has a single child, `smoke_pipe`.
+
+Note that a single method instance can have many subtask children - we could have a task method for `pass_time_at_baker_st` with three consecutive task children, e.g., `[read_novel, smoke_pipe, take_a_nap]`.
 
 ## Problem 1: Build a domain
 
@@ -77,8 +79,8 @@ Using the small domain from the snippet above, we can walk through an example ca
 
 ```python
 observed_sequence = [
-    Action("WATSON", "PICKS_UP", {"object": "novel"})
-    Action("WATSON", "SITS_DOWN", {"object": "armchair"})
+    Action("WATSON", "PICKS_UP", {"object": "novel"}),
+    Action("WATSON", "SITS_DOWN", {"object": "armchair"}),
 ]
 domain.get_dialogue_choices("read_novel", observed_sequence)
 
@@ -107,8 +109,8 @@ Now our same example method call from before results in
 
 ```python
 observed_sequence = [
-    Action("WATSON", "PICKS_UP", {"object": "novel"})
-    Action("WATSON", "SITS_DOWN", {"object": "armchair"})
+    Action("WATSON", "PICKS_UP", {"object": "novel"}),
+    Action("WATSON", "SITS_DOWN", {"object": "armchair"}),
 ]
 domain.get_dialogue_choices("read_novel_with_reaction", observed_sequence)
 
